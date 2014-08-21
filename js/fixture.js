@@ -1,4 +1,4 @@
-var data = [
+var images = [
  {
    image: 'http://photos-g.ak.instagram.com/hphotos-ak-xaf1/10616664_630976927000566_1003239505_n.jpg',
    user: 'mager'
