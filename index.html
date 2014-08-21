@@ -12,14 +12,12 @@
   <p>See the most popular photos on <a href="http://www.instagram.com">Instagram</a></p>
 </header>
 
-<div ng-controller="ImageController as image">
+<div ng-controller="SpotController as spot">
 
-  <ul>
-    <li>
-    	<p>{{image.product.user}}</p>
-    	<img ng-src="{{image.product.image}}" />
-    </li>
-  </ul>
+  <div ng-repeat="product in spot.products">
+	<p>{{product.spot.username}}</p>
+	<img ng-src="{{product.spot.image_href}}" />
+  </div>
 
 </div>
 
