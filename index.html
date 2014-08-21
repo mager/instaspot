@@ -15,6 +15,10 @@
 
  {{outlet}}
 
+{{#each item in model}}
+    <li>{{item}}</li>
+{{/each}}
+
 </script>
 
 
@@ -24,5 +28,6 @@
 <script src="bower_components/ember-data/ember-data.min.js"></script>
 <script src="js/application.js"></script>
 <script src="js/router.js"></script>
+<script src="js/models/item.js"></script>
 </body>
 </html>

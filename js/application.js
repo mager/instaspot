@@ -6,17 +6,28 @@ window.App = Ember.Application.create({
     }
 });
 
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
+
+
 // Initializes Ember Data
 App.Store = DS.Store.extend({
   adapter: DS.RESTAdapter
 })
 
-function grabImages(client_id) {  
+App.ApplicationAdapter = DS.RESTAdapter.extend({
+  findAll: function(data) {
+  	var link = 'https://api.instagram.com/v1/media/popular?client_id=451cf9fc4a0a44379d699e4ca48d58fb';
+    return this.ajax(link, "GET", {
+      // CORS
+      crossDomain: true,
+      xhrFields: {withCredentials: true}
+    }).then(function(json) {
+      // Massage this demo API endpoint to look like RESTAdapter expects.
+      return { things: [json] };
+    });
+  }
+});
 
-  var endpoint_popular = 'https://api.instagram.com/v1/media/popular?client_id=' + client_id
 
-}
 
-function onDataLoaded(instagram_data) {  
-
-}
+// var igdata = $.getJSON("https://api.instagram.com/v1/media/popular?client_id=451cf9fc4a0a44379d699e4ca48d58fb");

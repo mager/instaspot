@@ -5,3 +5,4 @@ App.Router.map(function() {
 
 // Create the default application route to set application-level state properties
 App.ApplicationRoute = Ember.Route.extend({});
+
