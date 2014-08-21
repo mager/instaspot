@@ -40,12 +40,12 @@
   ];
 
   app.controller('DynamicImages', function($scope, InstagramAPI){
-    console.log('heyo');
     $scope.data = {};
 
     InstagramAPI.fetchPopular(function(data){
 
       console.log(data);
+      $scope.pics = data;
 
     });
   });
