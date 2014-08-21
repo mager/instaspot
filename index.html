@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="instaspot">
 <head>
   <title>instaspot</title>
 </head>
@@ -11,6 +11,17 @@
 
   <p>See the most popular photos on <a href="http://www.instagram.com">Instagram</a></p>
 </header>
+
+<div ng-controller="ImageController as image">
+
+  <ul>
+    <li>
+    	<p>{{image.product.user}}</p>
+    	<img ng-src="{{image.product.image}}" />
+    </li>
+  </ul>
+
+</div>
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="js/application.js"></script>
