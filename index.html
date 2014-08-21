@@ -2,6 +2,11 @@
 <html ng-app="instaspot">
 <head>
   <title>instaspot</title>
+
+  <style type="text/css">
+    .spot {float:left;margin: 0 15px 15px;}
+    .spot p {font-weight:bold;}
+  </style>
 </head>
 
 <body>
@@ -14,9 +19,9 @@
 
 <div ng-controller="SpotController as spot">
 
-  <div ng-repeat="product in spot.products">
-	<p>{{product.spot.username}}</p>
-	<img ng-src="{{product.spot.image_href}}" />
+  <div class="spot" ng-repeat="product in spot.products">
+	<p>{{product.username}}</p>
+	<img ng-src="{{product.image_href}}" />
   </div>
 
 </div>
