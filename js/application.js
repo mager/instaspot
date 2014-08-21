@@ -8,26 +8,31 @@ window.App = Ember.Application.create({
 
 App.ApplicationAdapter = DS.FixtureAdapter.extend();
 
+// Create the global router to manage page state via URLs 
+App.Router.map(function() {
+  this.resource('index', { path: '/' });
+});
 
-// Initializes Ember Data
 App.Store = DS.Store.extend({
   adapter: DS.RESTAdapter
 })
 
-App.ApplicationAdapter = DS.RESTAdapter.extend({
-  findAll: function(data) {
-  	var link = 'https://api.instagram.com/v1/media/popular?client_id=451cf9fc4a0a44379d699e4ca48d58fb';
-    return this.ajax(link, "GET", {
-      // CORS
-      crossDomain: true,
-      xhrFields: {withCredentials: true}
-    }).then(function(json) {
-      // Massage this demo API endpoint to look like RESTAdapter expects.
-      return { things: [json] };
-    });
-  }
+App.Item = DS.Model.extend({
+  image: DS.attr('string'),
+  user: DS.attr('string')
 });
 
-
-
-// var igdata = $.getJSON("https://api.instagram.com/v1/media/popular?client_id=451cf9fc4a0a44379d699e4ca48d58fb");
+App.Item.FIXTURES = [
+ {
+   image: 'http://photos-g.ak.instagram.com/hphotos-ak-xaf1/10616664_630976927000566_1003239505_n.jpg',
+   user: 'mager'
+ },
+ {
+   image: 'http://photos-b.ak.instagram.com/hphotos-ak-xaf1/10593471_735752143130489_878680963_n.jpg',
+   user: 'mager',
+ },
+ {
+   image: 'http://photos-b.ak.instagram.com/hphotos-ak-xaf1/10593471_735752143130489_878680963_n.jpg',
+   user: 'hilldogg6'
+ }
+];
