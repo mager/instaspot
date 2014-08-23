@@ -18,14 +18,10 @@
     }
   }]);
 
-  app.controller('DynamicImages', function($scope, InstagramAPI){
+  app.controller('ShowImages', function($scope, InstagramAPI){
     $scope.data = {};
-
     InstagramAPI.fetchPopular(function(data){
-
-      console.log(data);
       $scope.pics = data;
-
     });
   });
 
