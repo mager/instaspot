@@ -3,28 +3,38 @@
 <head>
   <title>instaspot</title>
 
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700|Karma:400,700" rel="stylesheet" type="text/css" />
   <style type="text/css">
-    .spot {float:left;margin: 0 15px 15px;}
-    .spot p {font-weight:bold;}
+    body {padding:0;margin:0;font-weight:300;font-family:Lato;}
+    header, section, footer {padding:5px 20px;}
+    header {background:#f99;}
+    section {overflow:hidden;}
+    h1 {font-family:Karma;font-size:48px;margin:0;font-weight:700;}
+    h1 span {font-size:16px;font-weight:400;padding:0 0 0 10px;}
+    .spot {float:left;margin:0 15px 15px 0;}
+    footer {background:#3f9;}
+    footer a {color:#fff;}
   </style>
 </head>
 
 <body>
 
 <header>
-  <h1>instaspot</h1>
-
-  <p>See the most popular photos on <a href="http://www.instagram.com">Instagram</a></p>
+  <h1>instaspot<span> Find the most popular photos on <a href="http://www.instagram.com">Instagram</a> (refresh for more)</span></h1>
 </header>
 
-<div ng-controller="DynamicImages as dynamic">
+<section ng-controller="DynamicImages as dynamic">
 
   <div class="spot" ng-repeat="p in pics">
-	<p>{{p.user.username}}</p>
+	<p><a href="http://instagram.com/{{p.user.username}}" target="_blank">{{p.user.username}}</a></p>
 	<a href="{{p.link}}" target="_blank"><img ng-src="{{p.images.thumbnail.url}}" /></a>
   </div>
 
-</div>
+</section>
+
+<footer>
+  <p>Created by <a href="http://twitter.com/mager">@mager</a> | <a href="https://github.com/mager/instaspot/">Source Code</a> | <a href="/todo">Todo List</a></p>
+</footer>
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="js/application.js"></script>
