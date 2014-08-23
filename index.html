@@ -6,8 +6,6 @@
   <style type="text/css">
     .spot {float:left;margin: 0 15px 15px;}
     .spot p {font-weight:bold;}
-
-    #fixture {display:none;}
   </style>
 </head>
 
@@ -19,20 +17,11 @@
   <p>See the most popular photos on <a href="http://www.instagram.com">Instagram</a></p>
 </header>
 
-<div ng-controller="SpotController as spot" id="fixture">
-
-  <div class="spot" ng-repeat="product in spot.products">
-	<p>{{product.username}}</p>
-	<img ng-src="{{product.image_href}}" />
-  </div>
-
-</div>
-
 <div ng-controller="DynamicImages as dynamic">
 
   <div class="spot" ng-repeat="p in pics">
 	<p>{{p.user.username}}</p>
-	<img ng-src="{{p.images.thumbnail.url}}" />
+	<a href="{{p.link}}" target="_blank"><img ng-src="{{p.images.thumbnail.url}}" /></a>
   </div>
 
 </div>
